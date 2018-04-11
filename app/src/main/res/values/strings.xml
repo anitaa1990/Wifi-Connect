@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">WifiServer</string>
+
+    <string name="process_osta_amount_hint">Amount</string>
+    <string name="process_osta_merchant_title">Merchant Reference No</string>
+
+    <string name="bt_scanning_title">Waiting for confirmation from merchant...</string>
+    <string name="bt_scanning_error">No devices found nearby</string>
+    <string name="scan_init">Scanning for nearby devices...</string>
+    <string name="hotspot_init">Initializing Hotspot...</string>
+    <string name="hotspot_init_success">Initialized Hotspot...</string>
+
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="completed" formatted="false">Your payment for Rs. %s with Osta number %s will be processed now. Thank you for using Osta.</string>
+
+    <string name="btn_pay">RECEIVE</string>
+    <string name="btn_proceed">PROCEED TO PAY</string>
+    <string name="btn_receive">PAY</string>
+    <string name="btn_ok">OK</string>
+
+
+    <string name="title_receiver">Receiving</string>
+    <string name="title_sender">Payment</string>
+
+    <string name="sender_connecting">Connecting...</string>
+    <string name="sender_connected">Connected</string>
+    <string name="sender_hotspot_init">Initializing Hotspot...</string>
+    <string name="sender_hotspot_success">Hotspot Initialized</string>
+    <string name="hotspot_data_transfer">Transferring data...</string>
+
+
+    <string name="receiver_init">Scanning for Osta hotspot...&#8230;</string>
+    <string name="receiver_connecting" formatted="false">Connecting to %s...&#8230;</string>
+    <string name="receiver_connected" formatted="false">Connected to %s\nYour Device IP: %s</string>
+    <string name="receiver_error_in_connecting">Failed to connect with %s Hotspot. Retrying again..</string>
+    <string name="receiver_disconnected_error">Hotspot disconnected. Retrying...</string>
+    <string name="receiver_confirmation">Waiting for payment...</string>
+    <string name="receiver_success" formatted="false">Your osta is %s. Your payment is being process now.</string>
+
+    <string name="home_get_osta_count">Active Ostas: %s</string>
+    <string name="process_osta_amount_note_title">Quick Tip</string>
+    <string name="process_osta_amount_note">Use money from the appropriate key for related expenses. It’ll help you budget better.</string>
+    <string name="process_osta_select">Select an osta to continue</string>
+    <string name="process_osta_expiry_txt">Released into your\nlinked account</string>
+
+
+    <string name="history_osta_txns_title">Osta #%s</string>
+    <string name="home_expired">Expired</string>
+    <string name="home_expiry">Valid for: %s</string>
+
+    <string name="time_ago_prefix"></string>
+    <string name="time_ago_suffix">ago</string>
+    <string name="time_ago_seconds">seconds</string>
+    <string name="time_ago_minute">a minute</string>
+    <string name="time_ago_minutes">%d minutes</string>
+    <string name="time_ago_hour">an hour</string>
+    <string name="time_ago_hours">%d hours</string>
+    <string name="time_ago_day">a day</string>
+    <string name="time_ago_days">%d days</string>
+    <string name="time_ago_month"> a month</string>
+    <string name="time_ago_months">%d months</string>
+    <string name="time_ago_year">a year</string>
+    <string name="time_ago_years">%d years</string>
+
+</resources>

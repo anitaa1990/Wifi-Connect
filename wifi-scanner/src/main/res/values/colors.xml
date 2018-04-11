@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="fragment_history_date">#424242</color>
+    <color name="landing_fragment_desc">#282828</color>
+    <color name="fragment_add_bank_desc">#908f8f</color>
+    <color name="divider_color">#26000000</color>
+
+</resources>

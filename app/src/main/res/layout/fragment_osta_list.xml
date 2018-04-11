@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/acitivity_onboarding_bg"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="none"
+        android:scrollingCache="false">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                app:cardElevation="0.5dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:layout_marginLeft="@dimen/margin_xlarge"
+                    android:layout_marginRight="@dimen/margin_xlarge"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="vertical">
+
+
+                    <com.an.customfontview.CustomTextView
+                        android:id="@+id/osta_merchant_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Subways, Worli"
+                        android:textColor="@color/activity_login_edittext_txt"
+                        android:textSize="@dimen/font_xmedium"
+                        app:textFontPath="fonts/montserrat_regular.otf" />
+
+                    <com.an.customfontview.CustomTextView
+                        android:id="@+id/osta_merchant_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:lineSpacingExtra="2.7dp"
+                        android:text="Shop No. 5, Dr. R.G. Thadani Marg, Worli,\nMumbai, Maharashtra 400018"
+                        android:textColor="@color/acitivity_onboarding_info"
+                        android:textSize="@dimen/font_small"
+                        app:textFontPath="fonts/montserrat_regular.otf" />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:background="@android:color/white"
+                app:cardCornerRadius="6.7dp"
+                app:cardElevation="0.8dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="false">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xlarge"
+                    android:layout_marginRight="@dimen/margin_xlarge"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:orientation="vertical">
+
+                    <com.an.customfontview.CustomTextView
+                        android:id="@+id/osta_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/process_osta_amount_hint"
+                        android:textColor="@color/acitivity_onboarding_info"
+                        android:textSize="@dimen/font_small"
+                        app:textFontPath="fonts/montserrat_light.otf" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-6dp"
+                        android:paddingBottom="@dimen/padding_small">
+
+                        <com.an.customfontview.CustomTextView
+                            android:id="@+id/edit_currency"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginTop="@dimen/margin_xlarge"
+                            android:text="₹"
+                            android:textColor="@color/activity_login_edittext_txt"
+                            android:textSize="@dimen/font_xmedium"
+                            app:textFontPath="fonts/indian_rupee_regular.ttf" />
+
+
+                        <com.an.customfontview.CustomEditText
+                            android:id="@+id/edit_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_small"
+                            android:layout_toRightOf="@+id/edit_currency"
+                            android:background="@android:color/transparent"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:text="500"
+                            android:maxLength="@integer/max_length_amount"
+                            android:textColor="@color/activity_login_edittext_txt"
+                            android:textSize="@dimen/font_xxxlarge"
+                            app:editFontPath="fonts/montserrat_regular.otf" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <LinearLayout android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/margin_xlarge"
+                    android:layout_marginRight="@dimen/margin_xlarge"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.an.customfontview.CustomTextView
+                        android:id="@+id/osta_count_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:gravity="center_horizontal"
+                        android:text="@string/home_get_osta_count"
+                        android:textColor="@color/acitivity_onboarding_info"
+                        android:textSize="@dimen/font_xmedium"
+                        app:textFontPath="fonts/montserrat_regular.otf" />
+
+
+                    <include layout="@layout/view_loader"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:layout_marginLeft="@dimen/margin_large"
+                        android:layout_marginRight="@dimen/margin_large" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:visibility="gone"
+                        android:clickable="false"
+                        android:id="@+id/osta_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layoutAnimation="@anim/layout_anim_fall_down"/>
+
+                </LinearLayout>
+
+
+                <com.an.customfontview.CustomTextView
+                    android:id="@+id/payment_note_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/margin_xxxxxlarge"
+                    android:layout_marginRight="@dimen/margin_xxxxxlarge"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0.03"
+                    android:lineSpacingExtra="0.7sp"
+                    android:layout_gravity="center"
+                    android:text="@string/process_osta_amount_note_title"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_xmedium"
+                    app:textFontPath="fonts/montserrat_regular.otf" />
+
+                <com.an.customfontview.CustomTextView
+                    android:id="@+id/payment_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/margin_xlarge"
+                    android:layout_marginLeft="@dimen/margin_xxxlarge"
+                    android:layout_marginRight="@dimen/margin_xxxlarge"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0.03"
+                    android:lineSpacingExtra="0.7sp"
+                    android:text="@string/process_osta_amount_note"
+                    android:textColor="@color/acitivity_onboarding_info"
+                    android:textSize="@dimen/font_small"
+                    app:textFontPath="fonts/montserrat_regular.otf" />
+
+
+                <include layout="@layout/view_proceed" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

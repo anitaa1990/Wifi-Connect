@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WifiScanner</string>
+    <string name="sender_system_settings_permission_prompt">Permission required to read/write System settings. This is necessary to create a Wifi Hotspot for Offline Payment Transfers</string>
+</resources>

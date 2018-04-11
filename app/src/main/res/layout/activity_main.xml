@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/scan_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xxxxxxlarge"
+            android:layout_marginTop="@dimen/margin_small"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/gif1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true" />
+
+            <com.an.customfontview.CustomTextView
+                android:id="@+id/progress_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_toRightOf="@+id/gif1"
+                android:gravity="center_vertical"
+                android:text="@string/scan_init"
+                android:textColor="@color/fragment_history_date"
+                android:textSize="@dimen/font_small_medium"
+                app:textFontPath="fonts/montserrat_regular.otf" />
+
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/scanned_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:clipToPadding="false" />
+
+
+        <com.an.customfontview.CustomTextView
+            android:visibility="gone"
+            android:id="@+id/scanned_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="center"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/bt_scanning_error"
+            android:textColor="@color/fragment_history_date"
+            android:textSize="@dimen/font_medium"
+            app:textFontPath="fonts/montserrat_regular.otf" />
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

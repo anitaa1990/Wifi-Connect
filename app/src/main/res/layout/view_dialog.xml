@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <ImageView
+        android:layout_marginBottom="@dimen/margin_xxxxxxlarge"
+        android:layout_above="@+id/dialog_txt"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/dialog_img"
+        android:adjustViewBounds="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.an.customfontview.CustomTextView
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="5sp"
+        android:layout_centerInParent="true"
+        android:id="@+id/dialog_txt"
+        android:layout_marginBottom="@dimen/margin_xxxlarge"
+        android:layout_marginLeft="@dimen/margin_xxxlarge"
+        android:layout_marginRight="@dimen/margin_xxxlarge"
+        android:textSize="@dimen/font_medium"
+        android:textColor="@color/activity_login_edittext_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textFontPath="fonts/montserrat_regular.otf" />
+
+
+    <com.an.customfontview.CustomButton
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dialog_txt"
+        android:id="@+id/btn_ok"
+        style="@style/GreenButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xxxxxxlarge"
+        android:text="@string/btn_ok"
+        app:btnFontPath="fonts/montserrat_medium.otf" />
+
+</RelativeLayout>

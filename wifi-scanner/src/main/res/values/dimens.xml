@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <integer name="max_length_text">20</integer>
+    <integer name="max_length_email">50</integer>
+    <integer name="max_length_password">15</integer>
+    <integer name="max_length_pin">6</integer>
+    <integer name="max_length_otp">6</integer>
+    <integer name="max_length_mobile">10</integer>
+    <integer name="max_length_amount">4</integer>
+    <integer name="max_length_account_number">19</integer>
+    <integer name="max_length_aadhar">12</integer>
+    <integer name="max_length_debit">22</integer>
+
+    <integer name="osta_max_amount">5000</integer>
+
+    <integer name="otp_resend_timer">120000</integer>
+    <integer name="otp_resend_timer_interval">1000</integer>
+
+    <integer name="onboarding_page_size">4</integer>
+    <integer name="register_page_size">5</integer>
+    <integer name="get_started_page_size">4</integer>
+    <integer name="home_page_size">4</integer>
+    <integer name="history_page_size">4</integer>
+    <integer name="chargeback_page_size">3</integer>
+
+    <integer name="default_auto_close_timer_length">2000</integer>
+    <integer name="seekbar_min">0</integer>
+    <integer name="seekbar_max">7000</integer>
+    <integer name="default_seekbar_max">5000</integer>
+    <integer name="default_seekbar_min">500</integer>
+
+    <integer name="register_name_max_length">20</integer>
+
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <dimen name="default_circle_indicator_radius">3dp</dimen>
+    <bool name="default_circle_indicator_snap">false</bool>
+    <color name="default_circle_indicator_stroke_color">#FFDDDDDD</color>
+    <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
+    <bool name="default_circle_indicator_centered">true</bool>
+
+    <dimen name="padding_xxsmall">4dip</dimen>
+    <dimen name="padding_xsmall">5dip</dimen>
+    <dimen name="padding_small">8dip</dimen>
+
+    <dimen name="padding">10dip</dimen>
+    <dimen name="padding_xmedium">11dip</dimen>
+
+
+    <dimen name="padding_small_medium">12dip</dimen>
+    <dimen name="padding_medium">14dip</dimen>
+    <dimen name="padding_large">15dip</dimen>
+    <dimen name="padding_medium_large">16dip</dimen>
+    <dimen name="padding_mm_large">18dip</dimen>
+    <dimen name="padding_xlarge">22dip</dimen>
+    <dimen name="padding_xxlarge">25dip</dimen>
+    <dimen name="padding_xx_xlarge">26dip</dimen>
+    <dimen name="padding_xxxlarge">28dip</dimen>
+    <dimen name="padding_xxxxlarge">50dip</dimen>
+
+
+
+    <dimen name="reverse_margin_small">-15dp</dimen>
+    <dimen name="reverse_margin">-40dp</dimen>
+    <dimen name="margin_xsmall">3dip</dimen>
+    <dimen name="margin_small">5dip</dimen>
+    <dimen name="margin">10dip</dimen>
+    <dimen name="margin_large">15dip</dimen>
+    <dimen name="margin_medium">13dip</dimen>
+    <dimen name="margin_xlarge">20dip</dimen>
+    <dimen name="margin_xxlarge">22dip</dimen>
+    <dimen name="margin_xx_medium_large">24dip</dimen>
+    <dimen name="margin_xxxlarge">29dip</dimen>
+    <dimen name="margin_xxxxlarge">35dip</dimen>
+    <dimen name="margin_xxxxxlarge">40dip</dimen>
+    <dimen name="margin_xxxxxxlarge">45dip</dimen>
+    <dimen name="margin_xxxxxxxlarge">60dip</dimen>
+    <dimen name="onboarding_fragment_padding">90dip</dimen>
+
+    <dimen name="font_xxxxsmall">6sp</dimen>
+    <dimen name="font_xxxsmall">8sp</dimen>
+    <dimen name="font_xxsmall">10sp</dimen>
+    <dimen name="font_xsmall">11sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_small_medium">12.7sp</dimen>
+    <dimen name="font_xmedium">14sp</dimen>
+    <dimen name="font_medium">16sp</dimen>
+    <dimen name="font_x_medium_large">17sp</dimen>
+    <dimen name="font_medium_large">18sp</dimen>
+    <dimen name="font_large">20sp</dimen>
+    <dimen name="font_xlarge">22sp</dimen>
+    <dimen name="font_xxlarge">30sp</dimen>
+    <dimen name="font_amount">36.7sp</dimen>
+    <dimen name="font_xxxlarge">40sp</dimen>
+
+    <dimen name="page_indicator_radius">4dip</dimen>
+    <dimen name="page_indicator_space">5.3dip</dimen>
+
+    <dimen name="verification_card_width">153.3dp</dimen>
+    <dimen name="verification_card_height">173.3dp</dimen>
+
+    <dimen name="home_card_width">153.3dp</dimen>
+    <dimen name="home_card_height">143.3dp</dimen>
+
+    <dimen name="txn_card_width">153.3dp</dimen>
+    <dimen name="txn_card_height">108.3dp</dimen>
+
+    <dimen name="chargeback_card_width">157.7dp</dimen>
+    <dimen name="chargeback_card_height">124.7dp</dimen>
+
+</resources>

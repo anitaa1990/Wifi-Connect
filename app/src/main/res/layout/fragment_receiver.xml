@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/scan_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scanned_list"
+            android:layout_marginLeft="@dimen/margin_xxxxxxxlarge"
+            android:layout_marginTop="@dimen/margin_small"
+            android:orientation="horizontal">
+
+            <com.wifi.server.dialogs.AnimationView
+                android:id="@+id/gif1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.an.customfontview.CustomTextView
+                android:id="@+id/progress_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="@dimen/font_xxxsmall"
+                android:gravity="center_vertical"
+                android:text="@string/sender_connecting"
+                android:textColor="@color/fragment_history_date"
+                android:textSize="@dimen/font_small_medium"
+                app:textFontPath="fonts/montserrat_light.otf" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:visibility="invisible"
+            android:id="@+id/scan_hotspot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scanned_list"
+            android:layout_marginLeft="@dimen/margin_xxxxxxxlarge"
+            android:layout_marginTop="@dimen/margin_small"
+            android:orientation="horizontal">
+
+            <com.wifi.server.dialogs.AnimationView
+                android:id="@+id/gif2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.an.customfontview.CustomTextView
+                android:id="@+id/progress_hotspot_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="@dimen/font_xxxsmall"
+                android:gravity="center_vertical"
+                android:text="@string/sender_hotspot_init"
+                android:textColor="@color/fragment_history_date"
+                android:textSize="@dimen/font_small_medium"
+                app:textFontPath="fonts/montserrat_light.otf" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/scan_data"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scanned_list"
+            android:layout_marginLeft="@dimen/margin_xxxxxxxlarge"
+            android:layout_marginTop="@dimen/margin_small"
+            android:orientation="horizontal">
+
+            <com.wifi.server.dialogs.AnimationView
+                android:id="@+id/gif3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.an.customfontview.CustomTextView
+                android:id="@+id/progress_data_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="@dimen/font_xxxsmall"
+                android:gravity="center_vertical"
+                android:text="@string/hotspot_data_transfer"
+                android:textColor="@color/fragment_history_date"
+                android:textSize="@dimen/font_small_medium"
+                app:textFontPath="fonts/montserrat_light.otf" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
