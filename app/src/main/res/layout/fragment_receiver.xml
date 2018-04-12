@@ -9,7 +9,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
         <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.an.customfontview.CustomEditText
+                android:id="@+id/sender_txt"
+                android:lines="5"
+                android:layout_weight="1"
+                android:hint="@string/sender_hint"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:paddingLeft="@dimen/margin"
+                android:paddingRight="@dimen/margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fragment_history_date"
+                android:textSize="@dimen/font_small_medium"
+                app:editFontPath="fonts/montserrat_regular.otf"/>
+
+
+            <com.an.customfontview.CustomButton
+                android:id="@+id/btn_send"
+                style="@style/GreenButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.1"
+                android:layout_marginRight="@dimen/margin"
+                android:text="@string/btn_send"
+                app:btnFontPath="fonts/montserrat_medium.otf" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:visibility="gone"
             android:id="@+id/scan_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

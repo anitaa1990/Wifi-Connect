@@ -16,7 +16,7 @@ import com.wifi.server.utils.Utils;
 import com.wifiscanner.listener.WifiP2PConnectionCallback;
 import com.wifiscanner.service.WifiP2PService;
 import com.wifiscanner.service.WifiP2PServiceImpl;
-import static com.wifiscanner.WifiConstants.SENDER_PREFS_VALUE;
+
 
 public class ReceiverActivity extends BaseActivity implements WifiP2PConnectionCallback, DialogEventListener {
 
@@ -29,9 +29,13 @@ public class ReceiverActivity extends BaseActivity implements WifiP2PConnectionC
         setContentView(R.layout.activity_container);
 
         initToolBar();
-        updateTitle(getString(R.string.title_receiver));
+        updateTitle(getString(R.string.title_sender));
 
-        wifiP2PService = new WifiP2PServiceImpl(this, SENDER_PREFS_VALUE, this);
+        wifiP2PService = new WifiP2PServiceImpl.Builder()
+                .setReceiver(this)
+                .setWifiP2PConnectionCallback(this)
+                .build();
+
         wifiP2PService.onCreate();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -58,46 +62,6 @@ public class ReceiverActivity extends BaseActivity implements WifiP2PConnectionC
     }
 
 
-    //    @Override
-//    public void onServerConnecting(String ssid) {
-//        System.out.println("####Server connecting##");
-//        Fragment fragment = getCurrentFragment();
-//        if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onServerConnectStarted(ssid);
-//    }
-//
-//    @Override
-//    public void onServerConnectionAlive(String ip, String ssid) {
-//        System.out.println("####Server connected##");
-//        Fragment fragment = getCurrentFragment();
-//        if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onServerConnectSuccess(ip, ssid);
-//    }
-//
-//    @Override
-//    public void onServerConnectionDead(String ssid) {
-//        System.out.println("####Server connect failed##");
-//        Fragment fragment = getCurrentFragment();
-//        if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onServerConnectFailed(ssid);
-//    }
-//
-//    @Override
-//    public void onServerStatusError() {
-////        Utils.showMessage(getApplicationContext(), getString(R.string.receiver_disconnected_error));
-//    }
-//
-//    @Override
-//    public void onDataTransferError() {
-//        System.out.println("####Data transfer error##");
-//    }
-//
-//    @Override
-//    public void onDataTransferSuccess(String s) {
-//        if(!isSuccess) {
-//            isSuccess = Boolean.TRUE;
-//            String message = String.format(getString(R.string.receiver_success), s);
-//            DialogHelper.getInstance().displayDialog(this, message, R.drawable.ic_p_success, false, this);
-//        }
-//    }
-//
     private Fragment getCurrentFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment currentFragment = fragmentManager.findFragmentById(R.id.fragment_container);
@@ -137,15 +101,15 @@ public class ReceiverActivity extends BaseActivity implements WifiP2PConnectionC
 
     @Override
     public void onPeerConnectionSuccess() {
-        System.out.println("####Receiver connected##");
-        wifiP2PService.startDataTransfer(Utils.getMerchantDetails());
         Fragment fragment = getCurrentFragment();
-        if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onServerConnectSuccess();
+        if(fragment instanceof ReceiverFragment){
+            wifiP2PService.startDataTransfer(((ReceiverFragment)fragment).getMessage());
+            ((ReceiverFragment)fragment).onServerConnectSuccess();
+        }
     }
 
     @Override
     public void onPeerConnectionFailure() {
-        System.out.println("####Server connection failed##");
         Fragment fragment = getCurrentFragment();
         if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onServerConnectFailed();
     }
@@ -162,7 +126,6 @@ public class ReceiverActivity extends BaseActivity implements WifiP2PConnectionC
 
     @Override
     public void onDataTransferring() {
-        System.out.println("####Data Receiving##");
         Fragment fragment = getCurrentFragment();
         if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onDataTransferStarted();
     }
@@ -183,9 +146,7 @@ public class ReceiverActivity extends BaseActivity implements WifiP2PConnectionC
 
     @Override
     public void onDataTransferredFailure() {
-        System.out.println("####Data Receiving Failed##");
-        Fragment fragment = getCurrentFragment();
-        if(fragment instanceof ReceiverFragment) ((ReceiverFragment)fragment).onDataTransferFailed();
+
     }
 
     @Override

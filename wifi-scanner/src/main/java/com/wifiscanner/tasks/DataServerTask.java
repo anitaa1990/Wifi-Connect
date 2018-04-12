@@ -46,7 +46,6 @@ public class DataServerTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         if(s != null) {
-            System.out.println("###Message##" + s);
             wifiP2PConnectionCallback.onDataReceivedSuccess(s);
         } else wifiP2PConnectionCallback.onDataReceivedFailure();
     }

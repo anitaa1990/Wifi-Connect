@@ -93,7 +93,7 @@
                 android:layout_marginLeft="@dimen/margin"
                 android:layout_marginTop="@dimen/font_xxxsmall"
                 android:gravity="center_vertical"
-                android:text="@string/hotspot_data_transfer"
+                android:text="@string/receiver_confirmation"
                 android:textColor="@color/fragment_history_date"
                 android:textSize="@dimen/font_small_medium"
                 app:textFontPath="fonts/montserrat_light.otf" />

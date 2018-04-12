@@ -33,6 +33,7 @@ import static com.wifiscanner.WifiConstants.EXTRAS_MESSAGE;
 import static com.wifiscanner.WifiConstants.EXTRAS_RESULT_RECEIVER;
 import static com.wifiscanner.WifiConstants.PREFS_CLIENT_KEY;
 import static com.wifiscanner.WifiConstants.RECEIVER_PREFS_VALUE;
+import static com.wifiscanner.WifiConstants.SENDER_PREFS_VALUE;
 import static com.wifiscanner.WifiConstants.STATUS_CONNECTING;
 import static com.wifiscanner.WifiConstants.STATUS_FAILURE;
 import static com.wifiscanner.WifiConstants.STATUS_SUCCESS;
@@ -48,10 +49,10 @@ public class WifiP2PServiceImpl implements WifiP2PService {
     private BroadcastReceiver wifiDirectBroadcastReceiver;
     private WifiP2PConnectionCallback wifiP2PConnectionCallback;
 
-    public WifiP2PServiceImpl(Activity activity, String prefsValue, WifiP2PConnectionCallback wifiP2PConnectionCallback) {
-        this.activity = activity;
-        this.wifiP2PConnectionCallback = wifiP2PConnectionCallback;
-        PreferenceUtils.setStringValues(activity, PREFS_CLIENT_KEY, prefsValue);
+    private WifiP2PServiceImpl(Builder builder) {
+        this.activity = builder.activity;
+        this.wifiP2PConnectionCallback = builder.wifiP2PConnectionCallback;
+        PreferenceUtils.setStringValues(activity, PREFS_CLIENT_KEY, builder.prefsKey);
     }
 
     @Override
@@ -90,7 +91,14 @@ public class WifiP2PServiceImpl implements WifiP2PService {
 
     @Override
     public synchronized void handleOnWifiStateChanged(int state) {
-        if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onInitiateDiscovery();
+        if(wifiP2PConnectionCallback != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    wifiP2PConnectionCallback.onInitiateDiscovery();
+                }
+            });
+        }
         initiateDiscovery();
     }
 
@@ -99,12 +107,26 @@ public class WifiP2PServiceImpl implements WifiP2PService {
         manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
             @Override
             public void onSuccess() {
-                if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onDiscoverySuccess();
+                if(wifiP2PConnectionCallback != null) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            wifiP2PConnectionCallback.onDiscoverySuccess();
+                        }
+                    });
+                }
             }
 
             @Override
             public void onFailure(int i) {
-                if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onDiscoveryFailure();
+                if(wifiP2PConnectionCallback != null) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            wifiP2PConnectionCallback.onDiscoveryFailure();
+                        }
+                    });
+                }
             }
         });
     }
@@ -120,7 +142,14 @@ public class WifiP2PServiceImpl implements WifiP2PService {
             public void onSuccess() {}
             @Override
             public void onFailure(int reason) {
-                if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onPeerConnectionFailure();
+                if(wifiP2PConnectionCallback != null) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            wifiP2PConnectionCallback.onPeerConnectionFailure();
+                        }
+                    });
+                }
             }
         });
     }
@@ -133,7 +162,14 @@ public class WifiP2PServiceImpl implements WifiP2PService {
             public void onSuccess() {}
             @Override
             public void onFailure(int i) {
-                if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onPeerDisconnectionFailure();
+                if(wifiP2PConnectionCallback != null) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            wifiP2PConnectionCallback.onPeerDisconnectionFailure();
+                        }
+                    });
+                }
             }
         });
     }
@@ -142,20 +178,43 @@ public class WifiP2PServiceImpl implements WifiP2PService {
     public synchronized void handleOnPeersChangedResponse() {
         manager.requestPeers(channel, new WifiP2pManager.PeerListListener() {
             @Override
-            public void onPeersAvailable(WifiP2pDeviceList wifiP2pDeviceList) {
-                if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onPeerAvailable(wifiP2pDeviceList);
+            public void onPeersAvailable(final WifiP2pDeviceList wifiP2pDeviceList) {
+                if(wifiP2PConnectionCallback != null) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            wifiP2PConnectionCallback.onPeerAvailable(wifiP2pDeviceList);
+                        }
+                    });
+                }
             }
         });
     }
 
     @Override
     public synchronized void handleOnPeerConnected() {
-        if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onPeerConnectionSuccess();
+        if(wifiP2PConnectionCallback != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    wifiP2PConnectionCallback.onPeerConnectionSuccess();
+                    boolean isClient = RECEIVER_PREFS_VALUE.equalsIgnoreCase(PreferenceUtils.getStringValues(activity, PREFS_CLIENT_KEY));
+                    if(isClient) startDataTransfer(null);
+                }
+            });
+        }
     }
 
     @Override
     public synchronized void handleOnPeerDisconnected() {
-        if(wifiP2PConnectionCallback != null) wifiP2PConnectionCallback.onPeerDisconnectionSuccess();
+        if(wifiP2PConnectionCallback != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    wifiP2PConnectionCallback.onPeerDisconnectionSuccess();
+                }
+            });
+        }
     }
 
     @Override
@@ -172,12 +231,11 @@ public class WifiP2PServiceImpl implements WifiP2PService {
             public void onConnectionInfoAvailable(WifiP2pInfo wifiP2pInfo) {
                 boolean isGroupOwner = wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner;
                 boolean isClient = RECEIVER_PREFS_VALUE.equalsIgnoreCase(PreferenceUtils.getStringValues(activity, PREFS_CLIENT_KEY));
-                System.out.println("@@@###@@@" + isClient + "###" + isGroupOwner);
 
                 if(isClient && isGroupOwner) {
                     handleOnPeerServer(wifiP2pInfo);
 
-                } else if(!isClient && !isGroupOwner) {
+                } else if(!isClient && !isGroupOwner && message != null) {
                     handleOnPeerClient(wifiP2pInfo, message);
                 }
             }
@@ -203,15 +261,30 @@ public class WifiP2PServiceImpl implements WifiP2PService {
                     int status = Integer.valueOf(String.valueOf(resultData.get(EXTRAS_MESSAGE)));
                     switch (status) {
                         case STATUS_CONNECTING:
-                            wifiP2PConnectionCallback.onDataTransferring();
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    wifiP2PConnectionCallback.onDataTransferring();
+                                }
+                            });
                             break;
 
                         case STATUS_SUCCESS:
-                            wifiP2PConnectionCallback.onDataTransferredSuccess();
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    wifiP2PConnectionCallback.onDataTransferredSuccess();
+                                }
+                            });
                             break;
 
                         case STATUS_FAILURE:
-                            wifiP2PConnectionCallback.onDataTransferredFailure();
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    wifiP2PConnectionCallback.onDataTransferredFailure();
+                                }
+                            });
                             break;
                     }
                 }
@@ -234,6 +307,33 @@ public class WifiP2PServiceImpl implements WifiP2PService {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static class Builder {
+        private String prefsKey;
+        private Activity activity;
+        private WifiP2PConnectionCallback wifiP2PConnectionCallback;
+
+        public Builder setSender(Activity activity) {
+            this.activity = activity;
+            this.prefsKey = RECEIVER_PREFS_VALUE;
+            return this;
+        }
+
+        public Builder setReceiver(Activity activity) {
+            this.activity = activity;
+            this.prefsKey = SENDER_PREFS_VALUE;
+            return this;
+        }
+
+        public Builder setWifiP2PConnectionCallback(WifiP2PConnectionCallback wifiP2PConnectionCallback) {
+            this.wifiP2PConnectionCallback = wifiP2PConnectionCallback;
+            return this;
+        }
+
+        public WifiP2PServiceImpl build() {
+            return new WifiP2PServiceImpl(this);
         }
     }
 }

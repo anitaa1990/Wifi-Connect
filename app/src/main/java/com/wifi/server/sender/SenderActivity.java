@@ -19,7 +19,6 @@ import com.wifiscanner.service.WifiP2PServiceImpl;
 import com.wifiscanner.utils.Utils;
 
 import java.util.Map;
-import static com.wifiscanner.WifiConstants.RECEIVER_PREFS_VALUE;
 
 public class SenderActivity extends BaseActivity implements WifiP2PConnectionCallback, OnSenderUIListener, DialogEventListener {
 
@@ -32,10 +31,13 @@ public class SenderActivity extends BaseActivity implements WifiP2PConnectionCal
         setContentView(R.layout.activity_container);
 
         initToolBar();
-        updateTitle(getString(R.string.title_sender));
+        updateTitle(getString(R.string.title_receiver));
         redirectToDeviceListScreen();
 
-        wifiP2PService = new WifiP2PServiceImpl(this, RECEIVER_PREFS_VALUE, this);
+        wifiP2PService = new WifiP2PServiceImpl.Builder()
+                .setSender(this)
+                .setWifiP2PConnectionCallback(this)
+                .build();
         wifiP2PService.onCreate();
     }
 
@@ -75,23 +77,6 @@ public class SenderActivity extends BaseActivity implements WifiP2PConnectionCal
         if(fragment instanceof DeviceListFragment) ((DeviceListFragment)fragment).onDeviceAvailable(wifiP2pDeviceList);
     }
 
-    @Override
-    public void onDeviceUnavailable() {
-        Fragment fragment = getCurrentFragment();
-        if(fragment instanceof DeviceListFragment) ((DeviceListFragment)fragment).onNoDeviceAvailable();
-    }
-
-    @Override
-    public void onScanCompleted() {
-        Fragment fragment = getCurrentFragment();
-        if(fragment instanceof DeviceListFragment) ((DeviceListFragment)fragment).onScanCompleted();
-    }
-
-    @Override
-    public void redirectToOstaListScreen(Map<String, String> data) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                OstaListFragment.newInstance(data)).commitAllowingStateLoss();
-    }
 
     @Override
     public void redirectToProcessScreen(WifiP2pDevice wifiP2pDevice) {
@@ -102,27 +87,9 @@ public class SenderActivity extends BaseActivity implements WifiP2PConnectionCal
     }
 
     @Override
-    public void onConnectionStarted() {
-        Fragment fragment = getCurrentFragment();
-        if(fragment instanceof SenderFragment) ((SenderFragment)fragment).onConnectStarted();
-    }
-
-    @Override
     public void onConnectionCompleted() {
         Fragment fragment = getCurrentFragment();
         if(fragment instanceof SenderFragment) ((SenderFragment)fragment).onConnectCompleted();
-    }
-
-    @Override
-    public void onHotSpotInitiated() {
-        Fragment fragment = getCurrentFragment();
-        if(fragment instanceof SenderFragment) ((SenderFragment)fragment).onHotspotStarted();
-    }
-
-    @Override
-    public void onHotSpotCompleted() {
-        Fragment fragment = getCurrentFragment();
-        if(fragment instanceof SenderFragment) ((SenderFragment)fragment).onHotspotCompleted();
     }
 
     @Override
@@ -133,8 +100,7 @@ public class SenderActivity extends BaseActivity implements WifiP2PConnectionCal
 
     @Override
     public void onDataTransferCompleted(String s) {
-        Map<String, String> merchantMap = Utils.convertStringToMap(s);
-        redirectToOstaListScreen(merchantMap);
+        redirectToSuccessScreen(R.drawable.ic_p_success, s);
     }
 
     @Override
@@ -157,74 +123,6 @@ public class SenderActivity extends BaseActivity implements WifiP2PConnectionCal
         Fragment currentFragment = fragmentManager.findFragmentById(R.id.fragment_container);
         return currentFragment;
     }
-
-
-
-//    @Override
-//    public void onInitiateDiscovery() {
-//        onScanStarted();
-//    }
-//
-//    @Override
-//    public void onDiscoverySuccess() {
-//    }
-//
-//    @Override
-//    public void onDiscoveryFailure() {
-//    }
-//
-//    @Override
-//    public void onPeerAvailable(WifiP2pDeviceList wifiP2pDeviceList) {
-//        onDeviceAvailable(wifiP2pDeviceList);
-//    }
-//
-//    @Override
-//    public void onPeerStatusChanged(WifiP2pDevice wifiP2pDevice) {
-//
-//    }
-//
-//    @Override
-//    public void onPeerConnectionSuccess() {}
-//
-//    @Override
-//    public void onPeerConnectionFailure() {}
-//
-//    @Override
-//    public void onPeerDisconnectionSuccess() {}
-//
-//    @Override
-//    public void onPeerDisconnectionFailure() {}
-//
-//    @Override
-//    public void onInitializeHotSpot() {
-//        System.out.println("###---Hotspot initialized---####");
-//        onConnectionCompleted();
-//        onHotSpotInitiated();
-//        wifiP2PService.getWifiClients();
-//    }
-//
-//    @Override
-//    public void onClientConnectionAlive(WifiScanResult c) {
-//        System.out.println("###---Client Connection success---####");
-//        onHotSpotCompleted();
-//        onDataTransferStarted();
-//    }
-//
-//    @Override
-//    public void onClientConnectionDead(WifiScanResult c) {
-//        System.out.println("###---Client Connection failure---####");
-//    }
-//
-//    @Override
-//    public void onWifiClientsScanComplete() {
-//        wifiP2PService.handleWifiScanCompletedResponse();
-//        System.out.println("###---Client Scan completed---####");
-//    }
-//
-//    @Override
-//    public void onDataTransferComplete() {
-//        onDataTransferCompleted();
-//    }
 
     @Override
     public void onPositiveButtonClicked(View view) {
@@ -258,25 +156,23 @@ public class SenderActivity extends BaseActivity implements WifiP2PConnectionCal
 
     @Override
     public void onPeerConnectionSuccess() {
-        System.out.println("###---Client Connection success---####");
-        wifiP2PService.startDataTransfer(null);
         onConnectionCompleted();
         onDataTransferStarted();
     }
 
     @Override
     public void onPeerConnectionFailure() {
-        System.out.println("###---Client Connection failed---####");
+
     }
 
     @Override
     public void onPeerDisconnectionSuccess() {
-        System.out.println("###---Client Disconnection success---####");
+
     }
 
     @Override
     public void onPeerDisconnectionFailure() {
-        System.out.println("###---Client Disconnection failed---####");
+
     }
 
     @Override

@@ -2,6 +2,7 @@
     <string name="app_name">WifiServer</string>
 
     <string name="process_osta_amount_hint">Amount</string>
+    <string name="sender_hint">Type message you would like to send</string>
     <string name="process_osta_merchant_title">Merchant Reference No</string>
 
     <string name="bt_scanning_title">Waiting for confirmation from merchant...</string>
@@ -14,14 +15,15 @@
     <string name="disconnected">Disconnected</string>
     <string name="completed" formatted="false">Your payment for Rs. %s with Osta number %s will be processed now. Thank you for using Osta.</string>
 
+    <string name="btn_send">Send</string>
     <string name="btn_pay">RECEIVE</string>
     <string name="btn_proceed">PROCEED TO PAY</string>
-    <string name="btn_receive">PAY</string>
+    <string name="btn_receive">SEND</string>
     <string name="btn_ok">OK</string>
 
 
     <string name="title_receiver">Receiving</string>
-    <string name="title_sender">Payment</string>
+    <string name="title_sender">Sending...</string>
 
     <string name="sender_connecting">Connecting...</string>
     <string name="sender_connected">Connected</string>
@@ -35,8 +37,8 @@
     <string name="receiver_connected" formatted="false">Connected to %s\nYour Device IP: %s</string>
     <string name="receiver_error_in_connecting">Failed to connect with %s Hotspot. Retrying again..</string>
     <string name="receiver_disconnected_error">Hotspot disconnected. Retrying...</string>
-    <string name="receiver_confirmation">Waiting for payment...</string>
-    <string name="receiver_success" formatted="false">Your osta is %s. Your payment is being process now.</string>
+    <string name="receiver_confirmation">Waiting for message...</string>
+    <string name="receiver_success" formatted="false">Your message is sent to the receiver</string>
 
     <string name="home_get_osta_count">Active Ostas: %s</string>
     <string name="process_osta_amount_note_title">Quick Tip</string>

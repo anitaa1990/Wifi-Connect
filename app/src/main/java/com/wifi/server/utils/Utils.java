@@ -4,23 +4,17 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.wifi.server.R;
-import com.wifi.server.model.OstaCard;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Utils {
@@ -29,15 +23,6 @@ public class Utils {
                                    String message) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show();
     }
-
-
-    public static List<OstaCard> loadDummyOstaList(Context context) {
-        String rulesJson = getJSONStringFromRaw(context, R.raw.test_osta);
-        Type listType = new TypeToken<List<OstaCard>>() {}.getType();
-        List<OstaCard> ostaCards = new Gson().fromJson(rulesJson, listType);
-        return ostaCards;
-    }
-
 
     private static String getJSONStringFromRaw(Context context, int rawId) {
 
