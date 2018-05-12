@@ -1,5 +1,7 @@
 # Wifi-Connect
 
+<a href="https://android-arsenal.com/details/1/6930"><img src="https://img.shields.io/badge/Android%20Arsenal-Wifi--Connect-blue.svg?style=flat" alt="Android Arsenal" data-canonical-src="https://img.shields.io/badge/Android%20Arsenal-Wifi--Connect-blue.svg?style=flat" style="max-width:100%;"></a>
+
 A simple wrapper module to connect two devices and share data using Wifi-Direct.
 
 This library provides an easy way to access the wifi direct api provided by Android without having to deal with all the boilerplate stuff going on inside.
