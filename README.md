@@ -112,7 +112,7 @@ Functions in the WifiP2PConnectionCallback interface
 | ```onDataTransferredSuccess()``` | called when data transfer has completed & is successful |
 | ```onDataTransferredFailure()``` | called when data transfer has completed & is not successful |
 | ```onDataReceiving()``` | Called when the receiver has started to receive the data from sender |
-| ```onDataReceivedSuccess()``` | Called when the receiver has received the data successfully |
+| ```onDataReceivedSuccess(String message)``` | Called when the receiver has received the data successfully |
 | ```onDataReceivedFailure()``` | Called when the data transferred is completed but data is not received |
 
 
