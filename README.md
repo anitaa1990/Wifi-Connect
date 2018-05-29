@@ -1,3 +1,5 @@
+![152px](https://user-images.githubusercontent.com/38810169/40613662-45cd4bea-62a1-11e8-9584-cb389821cbaf.png)
+
 # Wifi-Connect
 
 <a href="https://android-arsenal.com/details/1/6930"><img src="https://img.shields.io/badge/Android%20Arsenal-Wifi--Connect-blue.svg?style=flat" alt="Android Arsenal" data-canonical-src="https://img.shields.io/badge/Android%20Arsenal-Wifi--Connect-blue.svg?style=flat" style="max-width:100%;"></a>
