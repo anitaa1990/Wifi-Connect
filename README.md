@@ -27,7 +27,7 @@ This library provides an easy way to access the wifi direct api provided by Andr
 
 ```gradle
 dependencies {
-        compile 'com.wifiscanner:wifiscanner:0.1.2'
+    implementation 'com.wifiscanner:wifiscanner:0.1.2'
 }
 ```
 
