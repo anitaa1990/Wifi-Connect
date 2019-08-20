@@ -22,6 +22,8 @@ import com.wifiscanner.tasks.DataServerTask;
 import com.wifiscanner.utils.PreferenceUtils;
 import com.wifiscanner.utils.Utils;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Method;
 
 import static com.wifiscanner.WifiConstants.ACTION_SEND_FILE;
@@ -49,7 +51,7 @@ public class WifiP2PServiceImpl implements WifiP2PService {
     private BroadcastReceiver wifiDirectBroadcastReceiver;
     private WifiP2PConnectionCallback wifiP2PConnectionCallback;
 
-    private WifiP2PServiceImpl(Builder builder) {
+    private WifiP2PServiceImpl(@NotNull Builder builder) {
         this.activity = builder.activity;
         this.wifiP2PConnectionCallback = builder.wifiP2PConnectionCallback;
         PreferenceUtils.setStringValues(activity, PREFS_CLIENT_KEY, builder.prefsKey);

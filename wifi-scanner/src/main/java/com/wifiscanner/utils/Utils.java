@@ -2,6 +2,9 @@ package com.wifiscanner.utils;
 
 
 import com.wifiscanner.WifiConstants;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -24,7 +27,8 @@ public class Utils implements WifiConstants {
         return jsonStr;
     }
 
-    public static String convertMapToString(Map<String, String> map) {
+    @NotNull
+    public static String convertMapToString(@NotNull Map<String, String> map) {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (String key : map.keySet()) {

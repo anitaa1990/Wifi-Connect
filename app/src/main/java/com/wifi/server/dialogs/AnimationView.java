@@ -11,6 +11,8 @@ import android.view.View;
 
 import com.wifi.server.R;
 
+import org.jetbrains.annotations.NotNull;
+
 
 public class AnimationView extends View {
 
@@ -234,11 +236,11 @@ public class AnimationView extends View {
     /**
      * Draw current GIF frame
      */
-    private void drawMovieFrame(Canvas canvas) {
+    private void drawMovieFrame(@NotNull Canvas canvas) {
 
         mMovie.setTime(mCurrentAnimationTime);
 
-        canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        canvas.save();
         canvas.scale(mScale, mScale);
         mMovie.draw(canvas, mLeft / mScale, mTop / mScale);
         canvas.restore();
