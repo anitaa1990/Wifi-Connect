@@ -1,5 +1,7 @@
 package com.wifiscanner.model;
 
+import org.jetbrains.annotations.Contract;
+
 public class WifiScanResult {
 
     private String ip;
@@ -9,6 +11,7 @@ public class WifiScanResult {
         this.mac = mac;
     }
 
+    @Contract(value = "null -> false", pure = true)
     @Override
     public boolean equals(Object o) {
         if (o == this)

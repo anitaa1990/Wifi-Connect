@@ -4,9 +4,8 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.ResultReceiver;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
-import java.net.InetAddress;
 import java.net.Socket;
 import java.io.OutputStream;
 import java.io.ObjectOutputStream;
@@ -17,7 +16,6 @@ import static com.wifiscanner.WifiConstants.ACTION_SEND_FILE;
 import static com.wifiscanner.WifiConstants.EXTRAS_DATA;
 import static com.wifiscanner.WifiConstants.EXTRAS_GROUP_OWNER_ADDRESS;
 import static com.wifiscanner.WifiConstants.EXTRAS_GROUP_OWNER_PORT;
-import static com.wifiscanner.WifiConstants.EXTRAS_INET_ADDRESS;
 import static com.wifiscanner.WifiConstants.EXTRAS_MESSAGE;
 import static com.wifiscanner.WifiConstants.EXTRAS_RESULT_RECEIVER;
 import static com.wifiscanner.WifiConstants.SOCKET_TIMEOUT;

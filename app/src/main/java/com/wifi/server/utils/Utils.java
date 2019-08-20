@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.widget.Toast;
 import com.wifi.server.R;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +26,7 @@ public class Utils {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show();
     }
 
-    private static String getJSONStringFromRaw(Context context, int rawId) {
+    private static String getJSONStringFromRaw(@NotNull Context context, int rawId) {
 
         InputStream content = context.getResources().openRawResource(rawId);
         BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
@@ -48,15 +50,17 @@ public class Utils {
     }
 
 
+    @NotNull
     public static String timeAgo(Context context,
-                          Date date) {
+                                 @NotNull Date date) {
         return timeAgo(context, date.getTime());
     }
 
 
+    @NotNull
     @SuppressLint("StringFormatInvalid")
-    public static String timeAgo(Context context,
-                          long millis) {
+    public static String timeAgo(@NotNull Context context,
+                                 long millis) {
         long diff = new Date().getTime() - millis;
 
         Resources r = context.getResources();
@@ -119,7 +123,8 @@ public class Utils {
         return jsonStr;
     }
 
-    public static String convertMapToString(Map<String, String> map) {
+    @NotNull
+    public static String convertMapToString(@NotNull Map<String, String> map) {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (String key : map.keySet()) {
@@ -139,7 +144,7 @@ public class Utils {
         return stringBuilder.toString();
     }
 
-    public static Map<String, String> convertStringToMap(String input) {
+    public static Map<String, String> convertStringToMap(@NotNull String input) {
         Map<String, String> map = new HashMap<String, String>();
 
         String[] nameValuePairs = input.split("&");
