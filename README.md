@@ -14,9 +14,9 @@ This library provides an easy way to access the wifi direct api provided by Andr
 
 <p>Download the sample app on the Google Play Store and check out all the features</p>
 <p>
-<a href="https://lh3.googleusercontent.com/np6mWFTBu0GFah9BhO53E2ew5RgychG79Jh9x2Yp1wX_Omb2Eal_3bIL-amWXeDQVX8=h310-rw" target="_blank"><img src="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080937.png" width="180" style="max-width:100%;"></a>
-<a href="https://lh3.googleusercontent.com/9q35IMOhQsRAoxCfxHsxBd2S62Ke_yXG_ivgFZwxoCQqVYEFJ7nqu11j_k0QALASYDE=h310-rw" target="_blank"><img src="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080943.png" width="180" style="max-width:100%;"></a>
-<a href="https://lh3.googleusercontent.com/9q35IMOhQsRAoxCfxHsxBd2S62Ke_yXG_ivgFZwxoCQqVYEFJ7nqu11j_k0QALASYDE=h310-rw" target="_blank"><img src="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080954.png" width="180" style="max-width:100%;"></a>        
+<a href="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080937.png" target="_blank"><img src="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080937.png" width="180" style="max-width:100%;"></a>
+<a href="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080943.png" target="_blank"><img src="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080943.png" width="180" style="max-width:100%;"></a>
+<a href="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080954.png" target="_blank"><img src="https://github.com/anitaa1990/Wifi-Connect/blob/master/media/Screenshot_20180416-080954.png" width="180" style="max-width:100%;"></a>        
 </p>
 
 <img src="https://img.shields.io/badge/API-14%2B-orange.svg?style=flat" alt="API" data-canonical-src="https://img.shields.io/badge/API-14%2B-orange.svg?style=flat" style="max-width:100%;">
